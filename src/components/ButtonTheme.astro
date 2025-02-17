@@ -1,14 +1,23 @@
 ---
+  import Sun from '../images/sun-svgrepo-com.svg'
+  import Moon from '../images/moon-svgrepo-com.svg'
 ---
 
-<button id="theme-toggle" class="p-2 rounded bg-gray-200 dark:bg-gray-800 text-black dark:text-white transition">
-    🌙 Cambiar Tema
-</button>
+  <div class="relative ml-1 mr-1 flex items-center">
+    <button id="theme-toggle" class="appearance-none border-none flex hover:scale-125 transition">
+      <i class="theme-toggle-icon size-5 transition-all" id="sun">
+        <Sun width={20} height={20}/>
+      </i>
+      <i class="theme-toggle-icon size-5 transition-all" id="moon">
+        <Moon width={20} height={20}/>
+      </i>
+    </button>
+  </div>
   
 <script>
     document.addEventListener("DOMContentLoaded", () => {
       const button = document.getElementById("theme-toggle");
-  
+
       function getTheme() {
         return localStorage.getItem("theme") || 
           (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
@@ -22,16 +31,30 @@
           document.documentElement.classList.remove("dark");
           localStorage.setItem("theme", "light");
         }
+      }  
+      
+      setTheme(getTheme());  
+      
+      const currentTheme = getTheme();
+      const sunIcon = document.getElementById("sun");
+      const moonIcon = document.getElementById("moon");
+      if (sunIcon && moonIcon) {
+        sunIcon.classList.toggle('hidden', currentTheme === "light");
+        moonIcon.classList.toggle('hidden', currentTheme === "dark");
       }
-  
-      // Aplicar el tema guardado o el del sistema
-      setTheme(getTheme());
-  
-      // Evento de cambio de tema
+      
       if (button) {
         button.addEventListener("click", () => {
           const currentTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
           setTheme(currentTheme === "dark" ? "light" : "dark");
+          
+          const sunIcon = document.getElementById("sun");
+          const moonIcon = document.getElementById("moon");
+          
+          if (sunIcon && moonIcon) {
+            sunIcon.classList.toggle('hidden', currentTheme === "dark");
+            moonIcon.classList.toggle('hidden', currentTheme === "light");
+          }
         });
       }
     });
