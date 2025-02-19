@@ -9,17 +9,23 @@
 }
 /* Estilos para el tema claro */
 :root {
---bg-color: white;
---text-color: black;
-}
-
-/* Estilos para el tema oscuro */
-.dark {
---bg-color: black;
---text-color: white;
-}
-
-body {
-background-color: var(--bg-color);
-color: var(--text-color);
-}
+    --bg-color: #f9fafb;
+    --text-color: black;
+    --bg-gradient: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(217, 216, 255, 0.5), rgba(255, 255, 255, 0.9));
+  }
+  
+  /* Estilos para el tema oscuro */
+  .dark {
+    --bg-color: #030712;
+    --text-color: white;
+    --bg-gradient: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(120, 119, 198, 0.3), rgba(255, 255, 255, 0));
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    background-image: var(--bg-gradient);
+    color: var(--text-color);
+    min-height: 100vh;
+    margin: 0;
+  }
+  

@@ -4,12 +4,11 @@ import Inicio from '../components/Inicio.astro';
 import Experiencia from './Experiencia.astro';
 import Proyectos from './Proyectos.astro';
 import SobreMi from './SobreMi.astro';
-import background from '../assets/background.svg';
 import '../styles/welcome.css';
+import Habilidades from './Habilidades.astro';
 ---
 
-<div id="container">
-	<!-- <img id="background" src={background.src} alt="" fetchpriority="high" /> -->
+<div>
 	<Header/>
 	<main class="mt-6 flex flex-col items-center justify-center">
 		<Inicio/>
@@ -18,9 +17,8 @@ import '../styles/welcome.css';
 
 		<Proyectos/>
 
+		<Habilidades/>
+
 		<SobreMi/>
 	</main>
 </div>
-
-<style>
-</style>
