@@ -10,5 +10,5 @@ export default defineConfig({
         svg: true,
       },
     site: 'https://carlosande99.github.io',
-    base: 'mi-repo',
+    base: 'Mi-pagina',
 });
