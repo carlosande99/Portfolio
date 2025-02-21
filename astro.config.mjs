@@ -9,4 +9,6 @@ export default defineConfig({
       experimental: {
         svg: true,
       },
+    site: 'https://carlosande99.github.io',
+    base: 'mi-repo',
 });
