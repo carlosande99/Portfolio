@@ -11,4 +11,5 @@ export default defineConfig({
       },
     site: 'https://carlosande99.github.io',
     base: 'Portfolio',
+    output: "static",
 });
